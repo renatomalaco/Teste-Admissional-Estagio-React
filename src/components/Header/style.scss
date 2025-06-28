@@ -1,0 +1,17 @@
+@import "/src/styles/variables.scss";
+
+
+.header {
+  background-color: $primary;
+  padding: 42px 30px;
+  color: $grey;
+  width: 100%;
+  h2 {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}

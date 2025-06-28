@@ -1,14 +1,20 @@
-import Button from "../../components/Button";
-import { Title } from "./styles";
+import { Outlet } from 'react-router-dom';
+import Sidebar from '../../components/SideBar';
+import Header from '../../components/Header';
+import './style.scss';
 
-function Home() {
+const DashboardLayout = () => {
+  return (
+    <div className="dashboard-layout">
+      <Sidebar />
+      <div className="main-wrapper">
+        <Header />
+        <main className="content-area">
+          
+        </main>
+      </div>
+    </div>
+  );
+};
 
-    return(
-        <div>
-            <Title>Home</Title>
-            <Button />
-        </div>
-    )
-}
-
-export default Home
+export default DashboardLayout;

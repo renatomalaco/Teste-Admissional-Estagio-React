@@ -1,7 +1,11 @@
-export default function Header() {
+import './style.scss';
+
+const Header = () => {
   return (
-    <header style={{ background: '#6fa96f', padding: '1rem', color: '#fff' }}>
-      <h3>Seja bem-vindo ao sistema de mercado!</h3>
+    <header className="header">
+      <h2>Seja bem vindo ao sistema de mercado!</h2>
     </header>
   );
-}
+};
+
+export default Header;
