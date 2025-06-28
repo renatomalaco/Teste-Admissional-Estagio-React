@@ -1,12 +1,39 @@
-import { ButtonAdd } from "./styles";
+import classNames from "classnames";
+import "./style.scss";
 
-function Button() {
+export default function Button({
+    children,      // conteúdo
+    onClick,
+    variant,
+    size,
+    icon,
+    disabled,
+    className,
+    type = "button",
+    iconSize = 20,
+}) {
+
+    if (size !== "large") {
+        size = "medium";
+    }
+
+    const IconComponent = icon;
 
     return (
-        <div>
-            <ButtonAdd>Clica em mim</ButtonAdd>
-        </div>
-    )
+        <button
+            className={classNames("btn", className, `btn-${variant}`, size)}
+            onClick={onClick}
+            type={type}
+            disabled={disabled}
+        >
+            {IconComponent ? (
+                <div className="childrenWithIcon">
+                    <IconComponent size={iconSize} />
+                    {children}
+                </div>
+            ) : (
+                <>{children}</>
+            )}
+        </button>
+    );
 }
-
-export default Button

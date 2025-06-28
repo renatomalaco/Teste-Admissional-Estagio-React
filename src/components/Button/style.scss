@@ -1,0 +1,35 @@
+@import "/src/styles/variables.scss";
+
+.btn {
+  border-radius: 10px; 
+  border: none;
+  cursor: pointer;
+  display: inline-flex; // Melhor que flex para botões
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: $secondary;
+  color: $neutral-2;
+
+
+  &.large {
+    width: 100%; // O botão de login ocupa toda a largura do formulário
+    height: 50px;
+    font-size: 18px;
+    padding: 14px 20px;
+  }
+
+  &.medium {
+    height: 40px;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .childrenWithIcon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
