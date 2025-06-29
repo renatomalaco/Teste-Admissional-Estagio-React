@@ -1,0 +1,32 @@
+.stat-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  
+  &--active {
+    border-color: #007bff; // Cor da borda azul
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    .card-title {
+      font-size: 16px;
+      color: #6c757d;
+    }
+    .card-value {
+      font-size: 48px;
+      font-weight: bold;
+      color: #212121;
+    }
+  }
+
+  .card-icon {
+    color: #6c757d;
+  }
+}
