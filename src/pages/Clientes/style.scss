@@ -1,6 +1,184 @@
 @import "/src/styles/variables.scss";
 
-.page-container {
-  width: 100%;
+$primary-green: $secondary; // Verde para botões principais
+$dark-green: $secondary;    // Verde escuro para hover
+$text-color: #374151;
+$border-color: #e5e7eb;
+$background-light: #f9fafb; // Cor de fundo da página
 
+.page-container {
+    padding: 2rem;
+    background-color: $background-light;
+}
+
+.content-area {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+// Filtros e Card de Stats
+.filters-and-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    
+    .filter-controls {
+        flex-grow: 1;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .stats-container {
+        width: 250px; // Largura fixa para o card
+        flex-shrink: 0;
+    }
+}
+
+// Estilos para os inputs de filtro
+.search-input-wrapper {
+    position: relative;
+    flex-grow: 1;
+
+    .icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #9ca3af;
+        width: 20px;
+        height: 20px;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 2.75rem; // Espaço para o ícone
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        font-size: 1rem;
+        &:focus {
+            outline: 2px solid #2563eb;
+            border-color: transparent;
+        }
+    }
+}
+
+.sort-dropdown {
+    padding: 0.75rem 1rem;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    cursor: pointer;
+    &:focus {
+        outline: 2px solid #2563eb;
+        border-color: transparent;
+    }
+}
+
+
+// Container da Tabela
+.table-container {
+    background-color: #fff;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    overflow-x: auto; // Garante responsividade em telas pequenas
+}
+
+// Tabela
+.clients-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid $border-color;
+        color: $text-color;
+        vertical-align: middle;
+    }
+
+    th {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: #6b7280;
+    }
+    
+    tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    tbody tr:hover {
+        background-color: $background-light;
+    }
+    
+    .icon-cell {
+        width: 16px;
+        height: 16px;
+        color: #9ca3af;
+        margin-right: 0.5rem;
+    }
+    
+    .actions-header {
+        text-align: center;
+    }
+
+    .actions-cell {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+
+        .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            svg { width: 20px; height: 20px; }
+            
+            &.edit { color: #2563eb; }
+            &.delete { color: #ef4444; }
+            
+            &:hover { background-color: #f0f0f0; }
+        }
+    }
+}
+
+
+// Botão de Exportar
+.export-action {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.export-button {
+    background-color: $dark-green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: darken($dark-green, 5%);
+    }
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
 }

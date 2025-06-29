@@ -8,9 +8,11 @@ const StatCard = ({ title, value, icon: Icon, active }) => {
         <span className="card-title">{title}</span>
         <span className="card-value">{value}</span>
       </div>
-      <div className="card-icon">
-        <Icon size={28} />
-      </div>
+      {Icon && (
+        <div className="card-icon">
+          <Icon size={28} />
+        </div>
+      )}
     </div>
   );
 };
