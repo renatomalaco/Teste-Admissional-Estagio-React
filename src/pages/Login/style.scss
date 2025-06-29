@@ -1,87 +1,57 @@
 @import "/src/styles/variables.scss";
 
-.login-container{
-    display: flex;
-    justify-content: center;
-    margin: 350px;
-}
+.login-page {
 
-.login-card{
+  .card {
     background-color: $primary;
-    padding: 40px 30px;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     color: $neutral-1;
-}
+    border: none;
+  }
 
-.title {
-  font-size: 32px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.subtitle {
-  font-size: 24px;
-  font-weight: normal;
-  margin: 0 0 30px 0;
-}
-
-.login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.input-group {
-  width: 100%;
-  text-align: left;
+  .form-label {
+    color: $neutral-1; 
+  }
   
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  input {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 10px;
-    border: 2px solid $grey;
+  .form-control {
     background-color: transparent;
-    font-size: 16px;
-    box-sizing: border-box; 
+    border: 2px solid $grey;
+    color: $neutral-1; 
 
-    #username {
-      background-color: transparent;
+    &::placeholder {
+      color: darken($neutral-1, 30%);
     }
-    
+
     &:focus {
-      outline: none;
+      background-color: transparent;
+      color: $neutral-1;
       border-color: $secondary;
+      box-shadow: none; 
     }
   }
 
-  .password-wrapper {
-    position: relative;
-    width: 100%;
+  .password-input-wrapper {
+    position: relative; 
+  }
 
-    input {
-        padding-right: 45px;
+  .password-toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px; 
+    transform: translateY(-50%);
+    color: $grey; 
+
+    &:hover {
+      color: darken($grey, 20%);
     }
-    .password-toggle-icon {
-        position: absolute;
-        top: 58%;
-        right: 15px;
-        transform: translateY(-50%);
-        cursor: pointer;
-        font-size: 20px;
+  }
+
+  .btn-primary {
+    background-color: $secondary;
+    border-color: $secondary;
+
+    &:hover {
+      background-color: darken($secondary, 10%);
+      border-color: darken($secondary, 10%);
     }
   }
 }
