@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import "/src/styles/variables.scss";
 
 export const myGlobalStyles = createGlobalStyle `
 
@@ -8,13 +9,16 @@ export const myGlobalStyles = createGlobalStyle `
         box-sizing: border-box;
     }
 
-    body {
-        background-color: white;
+    .test-credentials {
+        all: unset;
+        margin-top: 46px;
+        font-size: 20px;
+        color: #424242;
     }
 
-    // p {
-    //     font-size:20px;
-    // }
+    body {
+        background-color: #f5f5f5;
+    }
 `
 
 export default myGlobalStyles

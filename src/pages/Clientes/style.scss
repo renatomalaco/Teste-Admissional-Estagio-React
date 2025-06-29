@@ -1,0 +1,14 @@
+@import "/src/styles/variables.scss";
+
+.container-components {
+    display: flex;
+    gap: 80%;
+
+    .text{
+        flex-direction: column;
+    }
+}
+
+.inputs {
+    margin-top: 20px;
+}

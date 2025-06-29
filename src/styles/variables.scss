@@ -5,23 +5,7 @@
     $neutral-1: #000000;
     $neutral-2: #FFFFFF;
     $grey: #424242;
-
-// Espaços
-    $spacing-4: 4px;
-    $spacing-8: 8px;
-    $spacing-10: 10px;
-    $spacing-12: 12px;
-    $spacing-14: 14px;
-    $spacing-16: 16px;
-    $spacing-20: 20px;
-    $spacing-24: 24px;
-    $spacing-28: 28px;
-    $spacing-32: 32px;
-    $spacing-40: 40px;
-    $spacing-52: 52px;
-    $spacing-62: 62px;
-    $spacing-80: 80px;
-    $spacing-120: 120px;
+    $blue: #1976D2;
 
 :export {
     $primary: #9BCD9D;
@@ -30,20 +14,5 @@
     $neutral-1: #000000;
     $neutral-2: #FFFFFF;
     $grey: #424242;
-
-    spacing4: $spacing-4;
-    spacing8: $spacing-8;
-    spacing10: $spacing-10;
-    spacing12: $spacing-12;
-    spacing14: $spacing-14;
-    spacing16: $spacing-16;
-    spacing20: $spacing-20;
-    spacing24: $spacing-24;
-    spacing28: $spacing-28;
-    spacing32: $spacing-32;
-    spacing40: $spacing-40;
-    spacing52: $spacing-52;
-    spacing62: $spacing-62;
-    spacing80: $spacing-80;
-    spacing120: $spacing-120;
+    $blue: #1976D2;
 }
