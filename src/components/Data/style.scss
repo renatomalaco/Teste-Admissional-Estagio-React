@@ -1,0 +1,11 @@
+// ... dentro de .data-table
+td {
+  color: #212121;
+  display: flex; // Alinha ícone e texto
+  align-items: center; // Centraliza verticalmente
+
+  .row-icon {
+    margin-right: 8px;
+    color: #6c757d; // Cor cinza para o ícone da linha
+  }
+}

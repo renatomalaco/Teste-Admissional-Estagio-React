@@ -1,14 +1,34 @@
 @import "/src/styles/variables.scss";
 
-.container-components {
+.page-container {
+  width: 100%;
+
+  .controls-bar {
     display: flex;
-    gap: 80%;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 24px;
 
-    .text{
-        flex-direction: column;
+    .filters {
+      flex: 3; // Ocupa 3 partes do espaço
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
-}
 
-.inputs {
-    margin-top: 20px;
+    .info {
+      flex: 1; // Ocupa 1 parte do espaço
+    }
+  }
+
+  // Media query para telas menores, para os filtros ficarem um embaixo do outro
+  @media (max-width: 992px) {
+    .controls-bar {
+      flex-direction: column;
+      .filters, .info {
+        width: 100%;
+      }
+    }
+  }
 }
