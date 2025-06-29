@@ -1,0 +1,24 @@
+@import "/src/styles/variables.scss";
+
+.product-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+  }
+  
+  .card-price {
+    font-weight: 700;
+  }
+
+  // NOVA REGRA PARA OS BOTÕES DE ÍCONE
+  .btn-icon {
+    background-color: transparent !important; // Força o fundo a ser transparente
+    
+    // Efeito suave ao passar o mouse por cima
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05) !important; // Um cinza bem clarinho
+    }
+  }
+}
