@@ -1,6 +1,5 @@
-import React from 'react';
-import Button from '../Button'; // Importa nosso botão customizado
-import { Plus } from 'lucide-react'; // 1. Importa o ícone necessário
+import Button from '../Button'; 
+import { Plus } from 'lucide-react';
 import './style.scss';
 
 const PageHeader = ({ title, subtitle, buttonText, onButtonClick }) => {
@@ -11,13 +10,7 @@ const PageHeader = ({ title, subtitle, buttonText, onButtonClick }) => {
         <p>{subtitle}</p>
       </div>
       <div className="header-action">
-        {/* 2. Passa o componente 'Plus' para a prop 'icon' do Button */}
-        <Button 
-          onClick={onButtonClick} 
-          variant="primary" 
-          size="add" // Usando o tamanho que definimos
-          icon={Plus} // Passando o ícone aqui
-        >
+        <Button onClick={onButtonClick} variant="primary" size="medium" icon={Plus}>
           {buttonText}
         </Button>
       </div>

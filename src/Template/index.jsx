@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/SideBar';
 import Header from '../components/Header';
 import './style.scss';
+import Toaster from '../components/UI/Toaster'
 
 const TemplateLayout = () => {
   return (
@@ -10,7 +11,8 @@ const TemplateLayout = () => {
       <div className="main-wrapper">
         <Header />
         <main className="content-area">
-          <Outlet /> 
+          <Outlet />
+          <Toaster /> 
         </main>
       </div>
     </div>
