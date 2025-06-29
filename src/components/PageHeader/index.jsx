@@ -10,8 +10,14 @@ const PageHeader = ({ title, subtitle, buttonText, onButtonClick, buttonClassNam
         <h1>{title}</h1>
         <p>{subtitle}</p>
       </div>
-      <div className="header-action">
-        <Button onClick={onButtonClick} size="medium" icon={Plus}>
+
+      <div className={`header-action ${buttonClassName}`}>
+        <Button 
+          onClick={onButtonClick} 
+          variant="primary" 
+          size="add"
+          icon={Plus}
+        >
           {buttonText}
         </Button>
       </div>
