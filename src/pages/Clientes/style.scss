@@ -2,9 +2,9 @@
 
 $primary-green: $secondary; // Verde para botões principais
 $dark-green: $secondary;    // Verde escuro para hover
-$text-color: #374151;
-$border-color: #e5e7eb;
-$background-light: #f9fafb; // Cor de fundo da página
+$text-color: $neutral-1;
+$border-color: $tertiary;
+$background-light: $neutral-2; // Cor de fundo da página
 
 .page-container {
     padding: 2rem;
@@ -70,10 +70,10 @@ $background-light: #f9fafb; // Cor de fundo da página
     border: 1px solid $border-color;
     border-radius: 8px;
     font-size: 1rem;
-    background-color: #fff;
+    background-color: $neutral-2;
     cursor: pointer;
     &:focus {
-        outline: 2px solid #2563eb;
+        outline: 2px solid $blue;
         border-color: transparent;
     }
 }
@@ -81,7 +81,7 @@ $background-light: #f9fafb; // Cor de fundo da página
 
 // Container da Tabela
 .table-container {
-    background-color: #fff;
+    background-color: $neutral-2;
     border: 1px solid $border-color;
     border-radius: 8px;
     padding: 1rem;
@@ -119,7 +119,7 @@ $background-light: #f9fafb; // Cor de fundo da página
     .icon-cell {
         width: 16px;
         height: 16px;
-        color: #9ca3af;
+        color: $grey;
         margin-right: 0.5rem;
     }
     
@@ -144,8 +144,8 @@ $background-light: #f9fafb; // Cor de fundo da página
             
             svg { width: 20px; height: 20px; }
             
-            &.edit { color: #2563eb; }
-            &.delete { color: #ef4444; }
+            &.edit { color: $blue; }
+            &.delete { color: $red; }
             
             &:hover { background-color: #f0f0f0; }
         }
@@ -161,7 +161,7 @@ $background-light: #f9fafb; // Cor de fundo da página
 
 .export-button {
     background-color: $dark-green;
-    color: white;
+    color: $neutral-2;
     border: none;
     border-radius: 8px;
     padding: 0.75rem 1.5rem;
@@ -175,6 +175,7 @@ $background-light: #f9fafb; // Cor de fundo da página
 
     &:hover {
         background-color: darken($dark-green, 5%);
+        transform: translateY(-2px);
     }
 
     svg {

@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '../Button';
 import { Plus } from 'lucide-react';
 import './style.scss';
