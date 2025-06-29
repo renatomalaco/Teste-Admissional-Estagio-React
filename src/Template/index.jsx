@@ -10,7 +10,7 @@ const TemplateLayout = () => {
       <div className="main-wrapper">
         <Header />
         <main className="content-area">
-          <Outlet /> 
+          <Outlet />
         </main>
       </div>
     </div>
