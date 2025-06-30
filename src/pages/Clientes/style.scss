@@ -1,92 +1,18 @@
 @import "/src/styles/variables.scss";
 
-$primary-green: $secondary; // Verde para botões principais
-$dark-green: $secondary;    // Verde escuro para hover
+// Variáveis locais (se necessário)
 $text-color: $neutral-1;
 $border-color: $tertiary;
-$background-light: $neutral-2; // Cor de fundo da página
+$background-light: $neutral-2;
 
-.page-container {
-    padding: 2rem;
-    background-color: $background-light;
-}
-
-.content-area {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-// Filtros e Card de Stats
-.filters-and-stats {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1.5rem;
-    
-    .filter-controls {
-        flex-grow: 1;
-        display: flex;
-        gap: 1rem;
-    }
-
-    .stats-container {
-        width: 250px; // Largura fixa para o card
-        flex-shrink: 0;
-    }
-}
-
-// Estilos para os inputs de filtro
-.search-input-wrapper {
-    position: relative;
-    flex-grow: 1;
-
-    .icon {
-        position: absolute;
-        left: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #9ca3af;
-        width: 20px;
-        height: 20px;
-    }
-
-    input {
-        width: 100%;
-        padding: 0.75rem 1rem 0.75rem 2.75rem; // Espaço para o ícone
-        border: 1px solid $border-color;
-        border-radius: 8px;
-        font-size: 1rem;
-        &:focus {
-            outline: 2px solid #2563eb;
-            border-color: transparent;
-        }
-    }
-}
-
-.sort-dropdown {
-    padding: 0.75rem 1rem;
-    border: 1px solid $border-color;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: $neutral-2;
-    cursor: pointer;
-    &:focus {
-        outline: 2px solid $blue;
-        border-color: transparent;
-    }
-}
-
-
-// Container da Tabela
+// Container da Tabela (Estes estilos continuam úteis)
 .table-container {
     background-color: $neutral-2;
     border: 1px solid $border-color;
     border-radius: 8px;
     padding: 1rem;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-    overflow-x: auto; // Garante responsividade em telas pequenas
+    overflow-x: auto;
 }
 
 // Tabela
@@ -121,6 +47,7 @@ $background-light: $neutral-2; // Cor de fundo da página
         height: 16px;
         color: $grey;
         margin-right: 0.5rem;
+        vertical-align: middle;
     }
     
     .actions-header {
@@ -152,15 +79,15 @@ $background-light: $neutral-2; // Cor de fundo da página
     }
 }
 
-
 // Botão de Exportar
 .export-action {
     display: flex;
     justify-content: flex-end;
+    margin-top: 1.5rem; // Adicionado um espaçamento
 }
 
 .export-button {
-    background-color: $dark-green;
+    background-color: $secondary; // Usando uma cor de suas variáveis
     color: $neutral-2;
     border: none;
     border-radius: 8px;
@@ -171,10 +98,10 @@ $background-light: $neutral-2; // Cor de fundo da página
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.2s;
 
     &:hover {
-        background-color: darken($dark-green, 5%);
+        background-color: darken($secondary, 10%);
         transform: translateY(-2px);
     }
 
@@ -182,4 +109,13 @@ $background-light: $neutral-2; // Cor de fundo da página
         width: 18px;
         height: 18px;
     }
+}
+
+// Estilos para o Botão Flutuante (FAB) em telas pequenas
+.fab-mobile {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
