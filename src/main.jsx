@@ -7,7 +7,7 @@ import Login from './pages/Login'
 import Template from './Template'
 import Dashboard from './pages/Dashboard'
 import Clientes from './pages/Clientes'
-import Pedidos from './pages/Produtos'
+import Pedidos from './pages/Pedidos'
 import Produtos from './pages/Produtos'
 
 const router = createBrowserRouter([

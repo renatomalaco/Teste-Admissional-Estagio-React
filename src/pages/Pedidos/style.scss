@@ -1,1 +1,41 @@
 @import "/src/styles/variables.scss";
+
+.badge {
+  padding: 0.5em 0.75em;
+  font-weight: 600;
+}
+
+.btn-icon {
+  background-color: transparent !important;
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+}
+
+.table {
+  > :not(caption) > * > * {
+    border-bottom-width: 1px;
+    padding: 1rem;
+  }
+
+  thead {
+    th {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      color: #6c757d;
+      border-bottom-width: 2px !important;
+    }
+  }
+}
+
+.fab-mobile {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
