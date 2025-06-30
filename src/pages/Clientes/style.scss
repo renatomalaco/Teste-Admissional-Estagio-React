@@ -1,121 +1,36 @@
 @import "/src/styles/variables.scss";
 
-// Variáveis locais (se necessário)
-$text-color: $neutral-1;
-$border-color: $tertiary;
-$background-light: $neutral-2;
+.btn-icon {
+  background-color: transparent !important;
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+}
 
-// Container da Tabela (Estes estilos continuam úteis)
-.table-container {
-    background-color: $neutral-2;
-    border: 1px solid $border-color;
-    border-radius: 8px;
+.table {
+  > :not(caption) > * > * {
+    border-bottom-width: 1px;
     padding: 1rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-    overflow-x: auto;
-}
+  }
 
-// Tabela
-.clients-table {
-    width: 100%;
-    border-collapse: collapse;
-
-    th, td {
-        padding: 0.75rem 1rem;
-        text-align: left;
-        border-bottom: 1px solid $border-color;
-        color: $text-color;
-        vertical-align: middle;
-    }
-
+  thead {
     th {
-        font-weight: 600;
-        font-size: 0.875rem;
-        color: #6b7280;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      color: #6c757d;
+      border-bottom-width: 2px !important;
     }
-    
-    tbody tr:last-child td {
-        border-bottom: none;
-    }
-
-    tbody tr:hover {
-        background-color: $background-light;
-    }
-    
-    .icon-cell {
-        width: 16px;
-        height: 16px;
-        color: $grey;
-        margin-right: 0.5rem;
-        vertical-align: middle;
-    }
-    
-    .actions-header {
-        text-align: center;
-    }
-
-    .actions-cell {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-
-        .icon-button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.25rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            svg { width: 20px; height: 20px; }
-            
-            &.edit { color: $blue; }
-            &.delete { color: $red; }
-            
-            &:hover { background-color: #f0f0f0; }
-        }
-    }
+  }
 }
 
-// Botão de Exportar
-.export-action {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 1.5rem; // Adicionado um espaçamento
-}
-
-.export-button {
-    background-color: $secondary; // Usando uma cor de suas variáveis
-    color: $neutral-2;
-    border: none;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: background-color 0.2s, transform 0.2s;
-
-    &:hover {
-        background-color: darken($secondary, 10%);
-        transform: translateY(-2px);
-    }
-
-    svg {
-        width: 18px;
-        height: 18px;
-    }
-}
-
-// Estilos para o Botão Flutuante (FAB) em telas pequenas
 .fab-mobile {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }

@@ -20,7 +20,8 @@
     "react-router-dom": "^7.6.3",
     "react-toastify": "^11.0.5",
     "sass": "^1.89.2",
-    "styled-components": "^6.1.19"
+    "styled-components": "^6.1.19",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

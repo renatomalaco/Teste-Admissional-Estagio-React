@@ -1,27 +1,28 @@
 import { useState, useEffect } from 'react';
-import './style.scss'; // Criaremos este arquivo a seguir
+import { Modal, Button, Form, Row, Col } from 'react-bootstrap';
 
-const ClientForm = ({ show, handleClose, handleSubmit, initialData }) => {
+export default function ClientForm({ show, handleClose, handleSubmit, initialData }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    address: ''
+    address: '',
   });
 
+  const isEditing = !!initialData;
+
   useEffect(() => {
-    // Se 'initialData' existir (modo de edição), preenche o formulário.
-    // Senão, reseta para os valores iniciais (modo de criação).
-    if (initialData) {
-      setFormData(initialData);
+    if (isEditing) {
+      setFormData({
+        name: initialData.name,
+        email: initialData.email,
+        phone: initialData.phone,
+        address: initialData.address,
+      });
     } else {
       setFormData({ name: '', email: '', phone: '', address: '' });
     }
-  }, [initialData, show]);
-
-  if (!show) {
-    return null;
-  }
+  }, [initialData, isEditing]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,37 +35,44 @@ const ClientForm = ({ show, handleClose, handleSubmit, initialData }) => {
   };
 
   return (
-    <div className="modal-overlay" onClick={handleClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <div className="modal-header">
-          <h2>{initialData ? 'Editar Cliente' : 'Novo Cliente'}</h2>
-          <button onClick={handleClose} className="close-button">&times;</button>
-        </div>
-        <form onSubmit={onFormSubmit} className="modal-body">
-          <div className="form-group">
-            <label htmlFor="name">Nome</label>
-            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="phone">Telefone</label>
-            <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="address">Endereço</label>
-            <input type="text" id="address" name="address" value={formData.address} onChange={handleChange} />
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn-secondary" onClick={handleClose}>Cancelar</button>
-            <button type="submit" className="btn-primary">Salvar</button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <Modal show={show} onHide={handleClose} centered size="lg">
+      <Modal.Header closeButton>
+        <Modal.Title>{isEditing ? 'Editar Cliente' : 'Novo Cliente'}</Modal.Title>
+      </Modal.Header>
+      <Form onSubmit={onFormSubmit}>
+        <Modal.Body>
+          <Form.Group className="mb-3">
+            <Form.Label>Nome Completo</Form.Label>
+            <Form.Control type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Digite o nome do cliente" required />
+          </Form.Group>
+          <Row>
+            <Col md={6}>
+              <Form.Group className="mb-3">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} placeholder="exemplo@email.com" required />
+              </Form.Group>
+            </Col>
+            <Col md={6}>
+              <Form.Group className="mb-3">
+                <Form.Label>Telefone</Form.Label>
+                <Form.Control type="text" name="phone" value={formData.phone} onChange={handleChange} placeholder="(99) 99999-9999" />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Form.Group>
+            <Form.Label>Endereço</Form.Label>
+            <Form.Control type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Rua, Número, Bairro" />
+          </Form.Group>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancelar
+          </Button>
+          <Button variant="primary" type="submit">
+            {isEditing ? 'Atualizar Cliente' : 'Criar Cliente'}
+          </Button>
+        </Modal.Footer>
+      </Form>
+    </Modal>
   );
-};
-
-export default ClientForm;
+}
