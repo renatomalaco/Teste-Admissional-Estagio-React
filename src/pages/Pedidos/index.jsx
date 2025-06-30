@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Search, SquarePen, Trash, Package, Plus } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
 import OrderForm from '../../components/OrderForm';
@@ -23,7 +23,19 @@ const parseDate = (dateString) => {
 };
 
 const Pedidos = () => {
-  const [orders, setOrders] = useState(initialOrders);
+  const [orders, setOrders] = useState(() => {
+    try {
+      const storedOrders = localStorage.getItem('orders');
+      return storedOrders ? JSON.parse(storedOrders) : initialOrders;
+    } catch {
+      return initialOrders;
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem('orders', JSON.stringify(orders));
+  }, [orders]);
+
   const [showModal, setShowModal] = useState(false);
   const [editingOrder, setEditingOrder] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -88,8 +100,9 @@ const Pedidos = () => {
     if (editingOrder) {
       setOrders(orders.map(o => o.id === editingOrder.id ? { ...o, ...processedData } : o));
     } else {
+      const newId = orders.length > 0 ? Math.max(...orders.map(o => o.id)) + 1 : 1;
       const newOrder = { 
-        id: Date.now(), 
+        id: newId, 
         date: new Date().toLocaleDateString('pt-BR'), 
         ...processedData 
       };
@@ -147,7 +160,6 @@ const Pedidos = () => {
           </div>
         </div>
         
-        {/* === VISUALIZAÇÃO EM TABELA (APENAS DESKTOP) === */}
         <div className="card shadow-sm d-none d-lg-block">
           <div className="table-responsive">
             <table className="table table-hover align-middle mb-0">
@@ -193,7 +205,6 @@ const Pedidos = () => {
           </div>
         </div>
 
-        {/* === VISUALIZAÇÃO EM CARDS (APENAS MOBILE E TABLET) === */}
         <div className="d-lg-none">
           {displayedOrders.map(order => (
             <div key={order.id} className="card shadow-sm mb-3">

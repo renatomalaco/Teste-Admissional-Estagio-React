@@ -1,9 +1,20 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, Users, Package, ShoppingCart, LogOut } from 'lucide-react';
-import logo from '../../../public/images/logoPrincipal.png'; 
+import logo from '../../../public/images/logoPrincipal.png';
 import './style.scss';
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    if (window.confirm('Tem certeza que deseja sair?')) {
+      localStorage.removeItem('products');
+      localStorage.removeItem('clients');
+      localStorage.removeItem('orders');
+      navigate('/');
+    }
+  };
+
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
@@ -39,7 +50,7 @@ const Sidebar = () => {
         </ul>
       </nav>
       <div className="sidebar-footer">
-        <button className="logout-button">
+        <button className="logout-button" onClick={handleLogout}>
           <LogOut size={20} />
           <span>Sair</span>
         </button>

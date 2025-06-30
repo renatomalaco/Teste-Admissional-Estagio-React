@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Search, Plus } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
 import ProductCard from '../../components/ProductCard';
@@ -15,7 +15,19 @@ const initialProducts = [
 ];
 
 const Produtos = () => {
-  const [products, setProducts] = useState(initialProducts);
+  const [products, setProducts] = useState(() => {
+    try {
+      const storedProducts = localStorage.getItem('products');
+      return storedProducts ? JSON.parse(storedProducts) : initialProducts;
+    } catch {
+      return initialProducts;
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem('products', JSON.stringify(products));
+  }, [products]);
+
   const [showModal, setShowModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,21 +38,23 @@ const Produtos = () => {
       product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    const sortedProducts = [...filteredProducts];
+    
     switch (sortOrder) {
       case 'name-asc':
-        filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+        sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
         break;
       case 'price-asc':
-        filteredProducts.sort((a, b) => a.price - b.price);
+        sortedProducts.sort((a, b) => a.price - b.price);
         break;
       case 'price-desc':
-        filteredProducts.sort((a, b) => b.price - a.price);
+        sortedProducts.sort((a, b) => b.price - a.price);
         break;
       default:
         break;
     }
 
-    return filteredProducts;
+    return sortedProducts;
   }, [products, searchTerm, sortOrder]);
 
   const handleCloseModal = () => {
