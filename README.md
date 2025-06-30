@@ -1,12 +1,39 @@
-# React + Vite
+# Teste Admissional Estágio React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de teste admissional feito com React.
 
-Currently, two official plugins are available:
+## Instalação
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para rodar este projeto localmente, siga os passos abaixo:
 
-## Expanding the ESLint configuration
+1.  **Clone o repositório:**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+    ```bash
+    git clone [https://github.com/renatomalaco/Teste-Admissional-Estagio-React.git](https://github.com/renatomalaco/Teste-Admissional-Estagio-React.git)
+    ```
+
+2.  **Acesse o diretório do projeto:**
+
+    ```bash
+    cd Teste-Admissional-Estagio-React
+    ```
+
+3.  **Instale as dependências:**
+
+    Execute o comando abaixo para instalar todas as dependências necessárias para o projeto.
+
+    ```bash
+    npm install
+    ```
+
+## Executando o Projeto
+
+Após a instalação das dependências, você pode iniciar o servidor de desenvolvimento com o seguinte comando:
+
+```bash
+npm run dev
+
+
+
+
+
