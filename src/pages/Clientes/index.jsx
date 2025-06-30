@@ -2,6 +2,7 @@ import './style.scss';
 import PageHeader from '../../components/PageHeader';
 import { Search, Download, SquarePen, Trash, User, Plus } from 'lucide-react';
 import { useState, useEffect, useMemo } from 'react';
+import { DataContext } from '../../services/DataContext';
 import ClientForm from '../../components/ClientForm';
 
 const mockClients = [

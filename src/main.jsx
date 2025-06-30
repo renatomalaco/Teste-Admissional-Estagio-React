@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import MyGlobalStyles from './styles/globalStyles.js'
 import { createBrowserRouter, RouterProvider } from 'react-router'
+import { DataProvider } from './services/DataContext.jsx'
 import Login from './pages/Login'
 import Template from './Template'
 import Dashboard from './pages/Dashboard'
@@ -40,7 +41,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <MyGlobalStyles />
-    <RouterProvider router={router} />      
+    <DataProvider>
+      <MyGlobalStyles />
+      <RouterProvider router={router} />    
+    </DataProvider>
   </StrictMode>,
 )
