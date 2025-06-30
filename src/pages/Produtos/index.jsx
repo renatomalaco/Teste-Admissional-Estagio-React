@@ -90,7 +90,7 @@ const Produtos = () => {
       <div className="mt-4">
         <div className="row mb-4 g-3">
           <div className="col-md-8">
-            <div className="d-flex flex-column gap-2 h-100">
+            <div className="d-flex flex-column gap-3 h-100">
               <div className="input-group">
                 <span className="input-group-text bg-white border-end-0"><Search size={18} className="text-muted"/></span>
                 <input
